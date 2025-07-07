@@ -384,8 +384,8 @@ export default function Index() {
         </div>
       </main>
 
-      {/* Bottom Navigation */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg">
+      {/* Bottom Navigation - Mobile Only */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg lg:hidden">
         <div className="grid grid-cols-5 py-2">
           <Button
             variant="ghost"
@@ -396,28 +396,28 @@ export default function Index() {
           </Button>
           <Button
             variant="ghost"
-            className="flex flex-col items-center py-2 h-auto"
+            className="flex flex-col items-center py-2 h-auto text-slate-600 hover:text-highway-600"
           >
             <MapPin className="h-5 w-5 mb-1" />
             <span className="text-xs">Locate</span>
           </Button>
           <Button
             variant="ghost"
-            className="flex flex-col items-center py-2 h-auto"
+            className="flex flex-col items-center py-2 h-auto text-slate-600 hover:text-highway-600"
           >
             <QrCode className="h-5 w-5 mb-1" />
             <span className="text-xs">Scan</span>
           </Button>
           <Button
             variant="ghost"
-            className="flex flex-col items-center py-2 h-auto"
+            className="flex flex-col items-center py-2 h-auto text-slate-600 hover:text-highway-600"
           >
             <Wallet className="h-5 w-5 mb-1" />
             <span className="text-xs">Wallet</span>
           </Button>
           <Button
             variant="ghost"
-            className="flex flex-col items-center py-2 h-auto"
+            className="flex flex-col items-center py-2 h-auto text-slate-600 hover:text-highway-600"
           >
             <User className="h-5 w-5 mb-1" />
             <span className="text-xs">Profile</span>
