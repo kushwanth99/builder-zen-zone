@@ -57,6 +57,27 @@ export default {
           border: "hsl(var(--sidebar-border))",
           ring: "hsl(var(--sidebar-ring))",
         },
+        highway: {
+          50: "hsl(var(--highway-50))",
+          100: "hsl(var(--highway-100))",
+          200: "hsl(var(--highway-200))",
+          300: "hsl(var(--highway-300))",
+          400: "hsl(var(--highway-400))",
+          500: "hsl(var(--highway-500))",
+          600: "hsl(var(--highway-600))",
+          700: "hsl(var(--highway-700))",
+          800: "hsl(var(--highway-800))",
+          900: "hsl(var(--highway-900))",
+          950: "hsl(var(--highway-950))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
+        },
       },
       borderRadius: {
         lg: "var(--radius)",
