@@ -141,51 +141,77 @@ export default function Index() {
       </header>
 
       {/* Main Content */}
-      <main className="pb-20">
+      <main className="max-w-7xl mx-auto pb-20 lg:pb-8">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-highway-500 via-highway-600 to-highway-700 text-white p-6">
-          <div className="mb-6">
-            <h2 className="text-2xl font-bold mb-2">Good Morning, Traveler!</h2>
-            <p className="text-highway-100 text-sm">
-              Everything you need for your journey
-            </p>
-          </div>
+        <section className="bg-gradient-to-br from-highway-500 via-highway-600 to-highway-700 text-white p-6 lg:p-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="mb-6 lg:mb-8">
+              <h2 className="text-2xl lg:text-4xl font-bold mb-2">
+                Good Morning, Traveler!
+              </h2>
+              <p className="text-highway-100 text-sm lg:text-base">
+                Everything you need for your journey
+              </p>
+            </div>
 
-          {/* Search Bar */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-            <Input
-              placeholder="Search services, locations..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/60 backdrop-blur-sm"
-            />
-          </div>
+            {/* Search Bar */}
+            <div className="relative max-w-md lg:max-w-lg">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-slate-400" />
+              <Input
+                placeholder="Search services, locations..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                className="pl-10 bg-white border-0 text-slate-900 placeholder:text-slate-500"
+              />
+            </div>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 gap-4 mt-6">
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-highway-100 text-sm">Wallet Balance</p>
-                    <p className="text-xl font-bold">₹2,450</p>
+            {/* Quick Stats */}
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 mt-6 lg:mt-8">
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-highway-100 text-sm">Wallet Balance</p>
+                      <p className="text-xl font-bold">₹2,450</p>
+                    </div>
+                    <Wallet className="h-8 w-8 text-highway-200" />
                   </div>
-                  <Wallet className="h-8 w-8 text-highway-200" />
-                </div>
-              </CardContent>
-            </Card>
-            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <p className="text-highway-100 text-sm">Total Savings</p>
-                    <p className="text-xl font-bold">₹8,320</p>
+                </CardContent>
+              </Card>
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-highway-100 text-sm">Total Savings</p>
+                      <p className="text-xl font-bold">₹8,320</p>
+                    </div>
+                    <TrendingUp className="h-8 w-8 text-green-300" />
                   </div>
-                  <TrendingUp className="h-8 w-8 text-green-300" />
-                </div>
-              </CardContent>
-            </Card>
+                </CardContent>
+              </Card>
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hidden lg:block">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-highway-100 text-sm">Trip Count</p>
+                      <p className="text-xl font-bold">47</p>
+                    </div>
+                    <Car className="h-8 w-8 text-highway-200" />
+                  </div>
+                </CardContent>
+              </Card>
+              <Card className="bg-white/10 backdrop-blur-sm border-white/20 hidden lg:block">
+                <CardContent className="p-4">
+                  <div className="flex items-center justify-between">
+                    <div>
+                      <p className="text-highway-100 text-sm">Points</p>
+                      <p className="text-xl font-bold">1,250</p>
+                    </div>
+                    <Star className="h-8 w-8 text-yellow-300" />
+                  </div>
+                </CardContent>
+              </Card>
+            </div>
           </div>
         </section>
 
