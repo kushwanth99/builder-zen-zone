@@ -172,7 +172,7 @@ export default function Index() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-black text-sm">Wallet Balance</p>
-                      <p className="text-xl font-bold text-black">₹2,450</p>
+                      <p className="text-xl font-bold text-blue-900">₹2,450</p>
                     </div>
                     <Wallet className="h-8 w-8 text-black" />
                   </div>
@@ -183,7 +183,7 @@ export default function Index() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-black text-sm">Total Savings</p>
-                      <p className="text-xl font-bold text-black">₹8,320</p>
+                      <p className="text-xl font-bold text-blue-900">₹8,320</p>
                     </div>
                     <TrendingUp className="h-8 w-8 text-black" />
                   </div>
@@ -194,7 +194,7 @@ export default function Index() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-black text-sm">Trip Count</p>
-                      <p className="text-xl font-bold text-black">47</p>
+                      <p className="text-xl font-bold text-blue-900">47</p>
                     </div>
                     <Car className="h-8 w-8 text-black" />
                   </div>
@@ -205,7 +205,7 @@ export default function Index() {
                   <div className="flex items-center justify-between">
                     <div>
                       <p className="text-black text-sm">Points</p>
-                      <p className="text-xl font-bold text-black">1,250</p>
+                      <p className="text-xl font-bold text-blue-900">1,250</p>
                     </div>
                     <Star className="h-8 w-8 text-black" />
                   </div>
