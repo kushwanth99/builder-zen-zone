@@ -68,48 +68,48 @@
   }
 
   .dark {
-    --background: 2 6 23%;
-    --foreground: 248 250 252%;
+    --background: 2 6 23;
+    --foreground: 248 250 252;
 
-    --card: 15 23 42%;
-    --card-foreground: 248 250 252%;
+    --card: 15 23 42;
+    --card-foreground: 248 250 252;
 
-    --popover: 15 23 42%;
-    --popover-foreground: 248 250 252%;
+    --popover: 15 23 42;
+    --popover-foreground: 248 250 252;
 
-    --primary: 147 197 253%;
-    --primary-foreground: 2 6 23%;
+    --primary: 147 197 253;
+    --primary-foreground: 2 6 23;
 
-    --secondary: 30 41 59%;
-    --secondary-foreground: 248 250 252%;
+    --secondary: 30 41 59;
+    --secondary-foreground: 248 250 252;
 
-    --muted: 30 41 59%;
-    --muted-foreground: 148 163 184%;
+    --muted: 30 41 59;
+    --muted-foreground: 148 163 184;
 
-    --accent: 30 41 59%;
-    --accent-foreground: 248 250 252%;
+    --accent: 30 41 59;
+    --accent-foreground: 248 250 252;
 
     --destructive: 0 62% 30%;
-    --destructive-foreground: 248 250 252%;
+    --destructive-foreground: 248 250 252;
 
-    --border: 30 41 59%;
-    --input: 30 41 59%;
-    --ring: 147 197 253%;
+    --border: 30 41 59;
+    --input: 30 41 59;
+    --ring: 147 197 253;
 
     --success: 142 76% 36%;
-    --success-foreground: 248 250 252%;
+    --success-foreground: 248 250 252;
 
     --warning: 38 92% 50%;
-    --warning-foreground: 248 250 252%;
+    --warning-foreground: 248 250 252;
 
-    --sidebar-background: 15 23 42%;
-    --sidebar-foreground: 226 232 240%;
-    --sidebar-primary: 147 197 253%;
-    --sidebar-primary-foreground: 2 6 23%;
-    --sidebar-accent: 30 41 59%;
-    --sidebar-accent-foreground: 248 250 252%;
-    --sidebar-border: 30 41 59%;
-    --sidebar-ring: 147 197 253%;
+    --sidebar-background: 15 23 42;
+    --sidebar-foreground: 226 232 240;
+    --sidebar-primary: 147 197 253;
+    --sidebar-primary-foreground: 2 6 23;
+    --sidebar-accent: 30 41 59;
+    --sidebar-accent-foreground: 248 250 252;
+    --sidebar-border: 30 41 59;
+    --sidebar-ring: 147 197 253;
   }
 }
 
