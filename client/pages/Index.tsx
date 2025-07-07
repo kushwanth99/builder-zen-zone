@@ -149,7 +149,7 @@ export default function Index() {
               <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-white">
                 Good Morning, Traveler!
               </h2>
-              <p className="text-black text-sm lg:text-base">
+              <p className="text-gray-800 text-sm lg:text-base">
                 Everything you need for your journey
               </p>
             </div>
