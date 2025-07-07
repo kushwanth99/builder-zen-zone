@@ -288,85 +288,100 @@ export default function Index() {
           </div>
         </section>
 
-        {/* Offers Section */}
-        <section className="px-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-foreground">
-              Special Offers
-            </h3>
-            <Button variant="ghost" size="sm" className="text-highway-600">
-              View All
-            </Button>
-          </div>
+        <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:px-8 lg:max-w-4xl lg:mx-auto">
+          {/* Offers Section */}
+          <section className="px-6 lg:px-0 mb-6 lg:mb-8">
+            <div className="flex items-center justify-between mb-4 lg:mb-6">
+              <h3 className="text-lg lg:text-xl font-semibold text-slate-900">
+                Special Offers
+              </h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-highway-600 hover:text-highway-700"
+              >
+                View All
+              </Button>
+            </div>
 
-          <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
-            <CardContent className="p-4">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center mb-2">
-                    <Gift className="h-5 w-5 mr-2" />
-                    <Badge className="bg-white/20 text-white">
-                      Limited Time
-                    </Badge>
+            <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
+              <CardContent className="p-4 lg:p-6">
+                <div className="flex items-center justify-between">
+                  <div className="flex-1">
+                    <div className="flex items-center mb-2">
+                      <Gift className="h-5 w-5 mr-2" />
+                      <Badge className="bg-white/20 text-white">
+                        Limited Time
+                      </Badge>
+                    </div>
+                    <h4 className="font-bold text-lg lg:text-xl mb-1">
+                      20% Cashback
+                    </h4>
+                    <p className="text-green-100 text-sm lg:text-base">
+                      On FASTag recharge above ₹500
+                    </p>
                   </div>
-                  <h4 className="font-bold text-lg mb-1">20% Cashback</h4>
-                  <p className="text-green-100 text-sm">
-                    On FASTag recharge above ₹500
-                  </p>
+                  <Button
+                    variant="secondary"
+                    size="sm"
+                    className="bg-white text-green-600 hover:bg-green-50 lg:text-base lg:px-6"
+                  >
+                    Claim Now
+                  </Button>
                 </div>
-                <Button
-                  variant="secondary"
-                  size="sm"
-                  className="bg-white text-green-600 hover:bg-green-50"
+              </CardContent>
+            </Card>
+          </section>
+
+          {/* Recent Activity */}
+          <section className="px-6 lg:px-0 mb-6 lg:mb-8">
+            <div className="flex items-center justify-between mb-4 lg:mb-6">
+              <h3 className="text-lg lg:text-xl font-semibold text-slate-900">
+                Recent Activity
+              </h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-highway-600 hover:text-highway-700"
+              >
+                View All
+              </Button>
+            </div>
+
+            <div className="space-y-3 lg:space-y-4">
+              {recentActivities.map((activity, index) => (
+                <Card
+                  key={index}
+                  className="bg-white hover:shadow-md transition-shadow"
                 >
-                  Claim Now
-                </Button>
-              </div>
-            </CardContent>
-          </Card>
-        </section>
-
-        {/* Recent Activity */}
-        <section className="px-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-foreground">
-              Recent Activity
-            </h3>
-            <Button variant="ghost" size="sm" className="text-highway-600">
-              View All
-            </Button>
-          </div>
-
-          <div className="space-y-3">
-            {recentActivities.map((activity, index) => (
-              <Card key={index}>
-                <CardContent className="p-4">
-                  <div className="flex items-center space-x-3">
-                    <div
-                      className={`w-10 h-10 ${activity.color} rounded-xl flex items-center justify-center`}
-                    >
-                      <activity.icon className="h-5 w-5 text-white" />
-                    </div>
-                    <div className="flex-1">
-                      <h4 className="font-medium text-foreground">
-                        {activity.title}
-                      </h4>
-                      <p className="text-sm text-muted-foreground">
-                        {activity.subtitle}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <div className="flex items-center text-xs text-muted-foreground">
-                        <Clock className="h-3 w-3 mr-1" />
-                        {activity.time}
+                  <CardContent className="p-4 lg:p-5">
+                    <div className="flex items-center space-x-3">
+                      <div
+                        className={`w-10 h-10 lg:w-12 lg:h-12 ${activity.color} rounded-xl flex items-center justify-center`}
+                      >
+                        <activity.icon className="h-5 w-5 lg:h-6 lg:w-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-medium text-slate-900 lg:text-base">
+                          {activity.title}
+                        </h4>
+                        <p className="text-sm lg:text-base text-slate-600">
+                          {activity.subtitle}
+                        </p>
+                      </div>
+                      <div className="text-right">
+                        <div className="flex items-center text-xs lg:text-sm text-slate-500">
+                          <Clock className="h-3 w-3 lg:h-4 lg:w-4 mr-1" />
+                          {activity.time}
+                        </div>
                       </div>
                     </div>
-                  </div>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </section>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </section>
+        </div>
       </main>
 
       {/* Bottom Navigation */}
