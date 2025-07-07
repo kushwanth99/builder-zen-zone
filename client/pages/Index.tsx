@@ -1,62 +1,377 @@
-import { DemoResponse } from "@shared/api";
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import {
+  Zap,
+  Navigation,
+  CreditCard,
+  QrCode,
+  Receipt,
+  MapPin,
+  Bell,
+  User,
+  Search,
+  Wallet,
+  Car,
+  Battery,
+  Shield,
+  Home,
+  Star,
+  TrendingUp,
+  Clock,
+  Gift,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+
+const services = [
+  {
+    id: "fastag",
+    name: "FASTag",
+    icon: Car,
+    color: "bg-highway-500",
+    description: "Quick toll payments",
+    popular: true,
+  },
+  {
+    id: "ev-chargers",
+    name: "EV Chargers",
+    icon: Battery,
+    color: "bg-green-500",
+    description: "Find & book charging",
+  },
+  {
+    id: "gps",
+    name: "GPS Navigation",
+    icon: Navigation,
+    color: "bg-blue-500",
+    description: "Smart route planning",
+  },
+  {
+    id: "raksha-qr",
+    name: "Raksha QR",
+    icon: Shield,
+    color: "bg-red-500",
+    description: "Emergency assistance",
+  },
+  {
+    id: "bill-payments",
+    name: "Bill Payments",
+    icon: Receipt,
+    color: "bg-purple-500",
+    description: "Pay utilities & more",
+  },
+  {
+    id: "wallet",
+    name: "Wallet",
+    icon: Wallet,
+    color: "bg-orange-500",
+    description: "Manage payments",
+  },
+];
+
+const quickActions = [
+  { name: "Recharge", icon: Zap, color: "bg-yellow-500" },
+  { name: "Locate", icon: MapPin, color: "bg-blue-500" },
+  { name: "Pay", icon: CreditCard, color: "bg-green-500" },
+  { name: "Scan", icon: QrCode, color: "bg-purple-500" },
+];
+
+const recentActivities = [
+  {
+    title: "FASTag Recharge",
+    subtitle: "₹500 added successfully",
+    time: "2 hours ago",
+    icon: Car,
+    color: "bg-highway-500",
+  },
+  {
+    title: "EV Charging Session",
+    subtitle: "Completed at CP-001",
+    time: "1 day ago",
+    icon: Battery,
+    color: "bg-green-500",
+  },
+  {
+    title: "Bill Payment",
+    subtitle: "Electricity bill paid",
+    time: "3 days ago",
+    icon: Receipt,
+    color: "bg-purple-500",
+  },
+];
 
 export default function Index() {
-  const [exampleFromServer, setExampleFromServer] = useState("");
-  // Fetch users on component mount
-  useEffect(() => {
-    fetchDemo();
-  }, []);
-
-  // Example of how to fetch data from the server (if needed)
-  const fetchDemo = async () => {
-    try {
-      const response = await fetch("/api/demo");
-      const data = (await response.json()) as DemoResponse;
-      setExampleFromServer(data.message);
-    } catch (error) {
-      console.error("Error fetching hello:", error);
-    }
-  };
+  const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-slate-100 to-slate-200">
-      <div className="text-center">
-        {/* TODO: FUSION_GENERATION_APP_PLACEHOLDER replace everything here with the actual app! */}
-        <h1 className="text-2xl font-semibold text-slate-800 flex items-center justify-center gap-3">
-          <svg
-            className="animate-spin h-8 w-8 text-slate-400"
-            viewBox="0 0 50 50"
+    <div className="min-h-screen bg-background">
+      {/* Header */}
+      <header className="bg-white shadow-sm border-b sticky top-0 z-40">
+        <div className="px-4 py-4">
+          <div className="flex items-center justify-between">
+            <div className="flex items-center space-x-3">
+              <div className="w-10 h-10 bg-gradient-to-br from-highway-500 to-highway-600 rounded-xl flex items-center justify-center">
+                <div className="w-6 h-6 bg-white rounded-full flex items-center justify-center">
+                  <div className="w-3 h-3 bg-highway-500 rounded-full"></div>
+                </div>
+              </div>
+              <div>
+                <h1 className="text-xl font-bold text-foreground">
+                  Highway Delite
+                </h1>
+                <p className="text-xs text-muted-foreground">
+                  Your mobility companion
+                </p>
+              </div>
+            </div>
+            <div className="flex items-center space-x-2">
+              <Button variant="ghost" size="icon" className="relative">
+                <Bell className="h-5 w-5" />
+                <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 bg-red-500 text-white text-xs flex items-center justify-center">
+                  3
+                </Badge>
+              </Button>
+              <Button variant="ghost" size="icon">
+                <User className="h-5 w-5" />
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="pb-20">
+        {/* Hero Section */}
+        <section className="bg-gradient-to-br from-highway-500 via-highway-600 to-highway-700 text-white p-6">
+          <div className="mb-6">
+            <h2 className="text-2xl font-bold mb-2">Good Morning, Traveler!</h2>
+            <p className="text-highway-100 text-sm">
+              Everything you need for your journey
+            </p>
+          </div>
+
+          {/* Search Bar */}
+          <div className="relative">
+            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-muted-foreground" />
+            <Input
+              placeholder="Search services, locations..."
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className="pl-10 bg-white/10 border-white/20 text-white placeholder:text-white/60 backdrop-blur-sm"
+            />
+          </div>
+
+          {/* Quick Stats */}
+          <div className="grid grid-cols-2 gap-4 mt-6">
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-highway-100 text-sm">Wallet Balance</p>
+                    <p className="text-xl font-bold">₹2,450</p>
+                  </div>
+                  <Wallet className="h-8 w-8 text-highway-200" />
+                </div>
+              </CardContent>
+            </Card>
+            <Card className="bg-white/10 backdrop-blur-sm border-white/20">
+              <CardContent className="p-4">
+                <div className="flex items-center justify-between">
+                  <div>
+                    <p className="text-highway-100 text-sm">Total Savings</p>
+                    <p className="text-xl font-bold">₹8,320</p>
+                  </div>
+                  <TrendingUp className="h-8 w-8 text-green-300" />
+                </div>
+              </CardContent>
+            </Card>
+          </div>
+        </section>
+
+        {/* Quick Actions */}
+        <section className="px-6 -mt-8 mb-6">
+          <div className="grid grid-cols-4 gap-3">
+            {quickActions.map((action, index) => (
+              <Card key={index} className="bg-white shadow-lg">
+                <CardContent className="p-4 text-center">
+                  <div
+                    className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mx-auto mb-2`}
+                  >
+                    <action.icon className="h-6 w-6 text-white" />
+                  </div>
+                  <p className="text-xs font-medium text-foreground">
+                    {action.name}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Services Grid */}
+        <section className="px-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-foreground">
+              Our Services
+            </h3>
+            <Button variant="ghost" size="sm" className="text-highway-600">
+              View All
+            </Button>
+          </div>
+
+          <div className="grid grid-cols-2 gap-4">
+            {services.map((service) => (
+              <Card
+                key={service.id}
+                className="hover:shadow-lg transition-shadow duration-200"
+              >
+                <CardContent className="p-4">
+                  <div className="flex items-start justify-between mb-3">
+                    <div
+                      className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center`}
+                    >
+                      <service.icon className="h-6 w-6 text-white" />
+                    </div>
+                    {service.popular && (
+                      <Badge className="bg-yellow-100 text-yellow-800 text-xs">
+                        Popular
+                      </Badge>
+                    )}
+                  </div>
+                  <h4 className="font-semibold text-foreground mb-1">
+                    {service.name}
+                  </h4>
+                  <p className="text-xs text-muted-foreground">
+                    {service.description}
+                  </p>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+
+        {/* Offers Section */}
+        <section className="px-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-foreground">
+              Special Offers
+            </h3>
+            <Button variant="ghost" size="sm" className="text-highway-600">
+              View All
+            </Button>
+          </div>
+
+          <Card className="bg-gradient-to-r from-green-500 to-green-600 text-white">
+            <CardContent className="p-4">
+              <div className="flex items-center justify-between">
+                <div className="flex-1">
+                  <div className="flex items-center mb-2">
+                    <Gift className="h-5 w-5 mr-2" />
+                    <Badge className="bg-white/20 text-white">
+                      Limited Time
+                    </Badge>
+                  </div>
+                  <h4 className="font-bold text-lg mb-1">20% Cashback</h4>
+                  <p className="text-green-100 text-sm">
+                    On FASTag recharge above ₹500
+                  </p>
+                </div>
+                <Button
+                  variant="secondary"
+                  size="sm"
+                  className="bg-white text-green-600 hover:bg-green-50"
+                >
+                  Claim Now
+                </Button>
+              </div>
+            </CardContent>
+          </Card>
+        </section>
+
+        {/* Recent Activity */}
+        <section className="px-6 mb-6">
+          <div className="flex items-center justify-between mb-4">
+            <h3 className="text-lg font-semibold text-foreground">
+              Recent Activity
+            </h3>
+            <Button variant="ghost" size="sm" className="text-highway-600">
+              View All
+            </Button>
+          </div>
+
+          <div className="space-y-3">
+            {recentActivities.map((activity, index) => (
+              <Card key={index}>
+                <CardContent className="p-4">
+                  <div className="flex items-center space-x-3">
+                    <div
+                      className={`w-10 h-10 ${activity.color} rounded-xl flex items-center justify-center`}
+                    >
+                      <activity.icon className="h-5 w-5 text-white" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-medium text-foreground">
+                        {activity.title}
+                      </h4>
+                      <p className="text-sm text-muted-foreground">
+                        {activity.subtitle}
+                      </p>
+                    </div>
+                    <div className="text-right">
+                      <div className="flex items-center text-xs text-muted-foreground">
+                        <Clock className="h-3 w-3 mr-1" />
+                        {activity.time}
+                      </div>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </section>
+      </main>
+
+      {/* Bottom Navigation */}
+      <nav className="fixed bottom-0 left-0 right-0 bg-white border-t shadow-lg">
+        <div className="grid grid-cols-5 py-2">
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center py-2 h-auto text-highway-600"
           >
-            <circle
-              className="opacity-30"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-            />
-            <circle
-              className="text-slate-600"
-              cx="25"
-              cy="25"
-              r="20"
-              stroke="currentColor"
-              strokeWidth="5"
-              fill="none"
-              strokeDasharray="100"
-              strokeDashoffset="75"
-            />
-          </svg>
-          Generating your app...
-        </h1>
-        <p className="mt-4 text-slate-600 max-w-md">
-          Watch the chat on the left for updates that might need your attention
-          to finish generating
-        </p>
-        <p className="mt-4 hidden max-w-md">{exampleFromServer}</p>
-      </div>
+            <Home className="h-5 w-5 mb-1" />
+            <span className="text-xs">Home</span>
+          </Button>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center py-2 h-auto"
+          >
+            <MapPin className="h-5 w-5 mb-1" />
+            <span className="text-xs">Locate</span>
+          </Button>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center py-2 h-auto"
+          >
+            <QrCode className="h-5 w-5 mb-1" />
+            <span className="text-xs">Scan</span>
+          </Button>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center py-2 h-auto"
+          >
+            <Wallet className="h-5 w-5 mb-1" />
+            <span className="text-xs">Wallet</span>
+          </Button>
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center py-2 h-auto"
+          >
+            <User className="h-5 w-5 mb-1" />
+            <span className="text-xs">Profile</span>
+          </Button>
+        </div>
+      </nav>
     </div>
   );
 }
