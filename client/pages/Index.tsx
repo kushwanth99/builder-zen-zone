@@ -216,64 +216,75 @@ export default function Index() {
         </section>
 
         {/* Quick Actions */}
-        <section className="px-6 -mt-8 mb-6">
-          <div className="grid grid-cols-4 gap-3">
-            {quickActions.map((action, index) => (
-              <Card key={index} className="bg-white shadow-lg">
-                <CardContent className="p-4 text-center">
-                  <div
-                    className={`w-12 h-12 ${action.color} rounded-xl flex items-center justify-center mx-auto mb-2`}
-                  >
-                    <action.icon className="h-6 w-6 text-white" />
-                  </div>
-                  <p className="text-xs font-medium text-foreground">
-                    {action.name}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+        <section className="px-6 lg:px-8 -mt-8 mb-6 lg:mb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="grid grid-cols-4 lg:grid-cols-4 gap-3 lg:gap-4">
+              {quickActions.map((action, index) => (
+                <Card
+                  key={index}
+                  className="bg-white shadow-lg hover:shadow-xl transition-shadow"
+                >
+                  <CardContent className="p-4 lg:p-6 text-center">
+                    <div
+                      className={`w-12 h-12 lg:w-16 lg:h-16 ${action.color} rounded-xl flex items-center justify-center mx-auto mb-2`}
+                    >
+                      <action.icon className="h-6 w-6 lg:h-8 lg:w-8 text-white" />
+                    </div>
+                    <p className="text-xs lg:text-sm font-medium text-slate-900">
+                      {action.name}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
         {/* Services Grid */}
-        <section className="px-6 mb-6">
-          <div className="flex items-center justify-between mb-4">
-            <h3 className="text-lg font-semibold text-foreground">
-              Our Services
-            </h3>
-            <Button variant="ghost" size="sm" className="text-highway-600">
-              View All
-            </Button>
-          </div>
-
-          <div className="grid grid-cols-2 gap-4">
-            {services.map((service) => (
-              <Card
-                key={service.id}
-                className="hover:shadow-lg transition-shadow duration-200"
+        <section className="px-6 lg:px-8 mb-6 lg:mb-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="flex items-center justify-between mb-4 lg:mb-6">
+              <h3 className="text-lg lg:text-xl font-semibold text-slate-900">
+                Our Services
+              </h3>
+              <Button
+                variant="ghost"
+                size="sm"
+                className="text-highway-600 hover:text-highway-700"
               >
-                <CardContent className="p-4">
-                  <div className="flex items-start justify-between mb-3">
-                    <div
-                      className={`w-12 h-12 ${service.color} rounded-xl flex items-center justify-center`}
-                    >
-                      <service.icon className="h-6 w-6 text-white" />
+                View All
+              </Button>
+            </div>
+
+            <div className="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 lg:gap-6">
+              {services.map((service) => (
+                <Card
+                  key={service.id}
+                  className="bg-white hover:shadow-lg transition-shadow duration-200 cursor-pointer"
+                >
+                  <CardContent className="p-4 lg:p-6">
+                    <div className="flex items-start justify-between mb-3">
+                      <div
+                        className={`w-12 h-12 lg:w-14 lg:h-14 ${service.color} rounded-xl flex items-center justify-center`}
+                      >
+                        <service.icon className="h-6 w-6 lg:h-7 lg:w-7 text-white" />
+                      </div>
+                      {service.popular && (
+                        <Badge className="bg-yellow-100 text-yellow-800 text-xs">
+                          Popular
+                        </Badge>
+                      )}
                     </div>
-                    {service.popular && (
-                      <Badge className="bg-yellow-100 text-yellow-800 text-xs">
-                        Popular
-                      </Badge>
-                    )}
-                  </div>
-                  <h4 className="font-semibold text-foreground mb-1">
-                    {service.name}
-                  </h4>
-                  <p className="text-xs text-muted-foreground">
-                    {service.description}
-                  </p>
-                </CardContent>
-              </Card>
-            ))}
+                    <h4 className="font-semibold text-slate-900 mb-1 lg:text-lg">
+                      {service.name}
+                    </h4>
+                    <p className="text-xs lg:text-sm text-slate-600">
+                      {service.description}
+                    </p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
           </div>
         </section>
 
