@@ -146,10 +146,10 @@ export default function Index() {
         <section className="bg-gradient-to-br from-highway-500 via-highway-600 to-highway-700 text-white p-6 lg:p-8">
           <div className="max-w-4xl mx-auto">
             <div className="mb-6 lg:mb-8">
-              <h2 className="text-2xl lg:text-4xl font-bold mb-2">
+              <h2 className="text-2xl lg:text-4xl font-bold mb-2 text-white">
                 Good Morning, Traveler!
               </h2>
-              <p className="text-highway-100 text-sm lg:text-base">
+              <p className="text-blue-100 text-sm lg:text-base">
                 Everything you need for your journey
               </p>
             </div>
