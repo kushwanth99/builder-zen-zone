@@ -105,10 +105,10 @@ export default function Index() {
   const [searchQuery, setSearchQuery] = useState("");
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       {/* Header */}
       <header className="bg-white shadow-sm border-b sticky top-0 z-40">
-        <div className="px-4 py-4">
+        <div className="max-w-7xl mx-auto px-4 lg:px-6 py-4">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className="w-10 h-10 bg-gradient-to-br from-highway-500 to-highway-600 rounded-xl flex items-center justify-center">
@@ -117,23 +117,23 @@ export default function Index() {
                 </div>
               </div>
               <div>
-                <h1 className="text-xl font-bold text-foreground">
+                <h1 className="text-xl font-bold text-slate-900">
                   Highway Delite
                 </h1>
-                <p className="text-xs text-muted-foreground">
+                <p className="text-xs text-slate-600">
                   Your mobility companion
                 </p>
               </div>
             </div>
             <div className="flex items-center space-x-2">
               <Button variant="ghost" size="icon" className="relative">
-                <Bell className="h-5 w-5" />
+                <Bell className="h-5 w-5 text-slate-700" />
                 <Badge className="absolute -top-1 -right-1 h-5 w-5 rounded-full p-0 bg-red-500 text-white text-xs flex items-center justify-center">
                   3
                 </Badge>
               </Button>
               <Button variant="ghost" size="icon">
-                <User className="h-5 w-5" />
+                <User className="h-5 w-5 text-slate-700" />
               </Button>
             </div>
           </div>
